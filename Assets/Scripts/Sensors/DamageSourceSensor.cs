@@ -8,6 +8,11 @@ public class DamageSourceSensor : MonoBehaviour
 
     public event Action<float> OnDamageDetected;
 
+    private void Start()
+    {
+        // Intentionally left empty to allow enable/disable from the Inspector.
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         DetectDamage(collision.gameObject);
@@ -20,11 +25,14 @@ public class DamageSourceSensor : MonoBehaviour
 
     private void DetectDamage(GameObject gameObject)
     {
-        DamageSourceAction damageSourceAction = gameObject.GetComponent<DamageSourceAction>();
-        if (damageSourceAction != null)
+        if (enabled)
         {
-            OnDamageDetected?.Invoke(damageSourceAction.Damage * damageRatio);
-        } 
+            DamageSourceAction damageSourceAction = gameObject.GetComponent<DamageSourceAction>();
+            if (damageSourceAction != null)
+            {
+                OnDamageDetected?.Invoke(damageSourceAction.Damage * damageRatio);
+            }
+        }
     }
 
 }

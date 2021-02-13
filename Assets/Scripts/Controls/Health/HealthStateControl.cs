@@ -2,16 +2,16 @@
 using UnityEditor;
 using UnityEngine;
 
-public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, IHealthStateControlIncrease, IHealthStateControlDecrease
+public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, 
+                                                 IHealthStateControlIncrease, 
+                                                 IHealthStateControlDecrease, 
+                                                 IHealthStateControlReadOnly
 {
 
     public event Action<float> OnHealthDecreased;
     public event Action OnMinHealthAchieved;
     public event Action<float> OnHealthIncreased;
     public event Action OnMaxHealthAchieved;
-
-    public float MaxHealth => maxHealth;
-    public float CurrentHealth => currentHealth;
 
     [SerializeField] float maxHealth;
 
@@ -21,6 +21,10 @@ public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, IHealth
     {
         currentHealth = maxHealth;
     }
+
+    public float GetMaxHealth() => maxHealth; // DUDA: Esto podrían ser properties pero si queremos que estén en una interfaz no es posible.
+   
+    public float GetCurrentHealth() => currentHealth;
 
     public bool TryIncreaseHealth(float amount)
     {

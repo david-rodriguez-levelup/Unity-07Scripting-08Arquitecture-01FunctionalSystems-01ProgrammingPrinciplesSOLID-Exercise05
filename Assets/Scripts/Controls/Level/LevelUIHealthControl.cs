@@ -3,8 +3,23 @@ using UnityEngine.UI;
 
 public class LevelUIHealthControl : MonoBehaviour
 {
-    [SerializeField] HealthStateControl playerHealthState;
+    //[SerializeField] IHealthStateControlReadOnly playerHealthState; // No es posible exponer interfaces en el inspector (lo hacemos en el Awake).
+    [SerializeField] GameObject player; // Option 1.
     [SerializeField] Image healthBar;
+
+    private IHealthStateControlReadOnly playerHealthState;
+
+    private void Awake()
+    {
+        // Two options:
+        // 1) From injected object in the inspector.
+        playerHealthState = player.GetComponent<IHealthStateControlReadOnly>();
+        // 2) Using generics!
+        // NameBasedComponentFinder<IHealthStateControlReadOnly> playerHealthStateFinder = new NameBasedComponentFinder<IHealthStateControlReadOnly>("Player");
+        // playerHealthState = playerHealthStateFinder.TryGet();
+        // 3) Extension method "FindObjectsOfInterfaceType"?
+        // ???
+    }
 
     private void OnEnable()
     {
@@ -30,8 +45,8 @@ public class LevelUIHealthControl : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        float maxHealth = playerHealthState.MaxHealth;
-        float currentHealth = playerHealthState.CurrentHealth;
+        float maxHealth = playerHealthState.GetMaxHealth();
+        float currentHealth = playerHealthState.GetCurrentHealth();
 
         healthBar.fillAmount = currentHealth / maxHealth;
     }

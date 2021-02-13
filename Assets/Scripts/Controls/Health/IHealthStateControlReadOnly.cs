@@ -1,6 +1,7 @@
-﻿using System;
+﻿
+using System;
 
-public interface IHealthStateControlAll
+public interface IHealthStateControlReadOnly
 {
 
     event Action<float> OnHealthDecreased;
@@ -9,11 +10,7 @@ public interface IHealthStateControlAll
     event Action OnMaxHealthAchieved;
 
     float GetMaxHealth(); // DUDA: Esto podrían ser properties pero si queremos que estén en esta interfaz no es posible.
-
+    
     float GetCurrentHealth();
-
-    bool TryIncreaseHealth(float amount);
-
-    bool TryDecreaseHealth(float amount);
 
 }
