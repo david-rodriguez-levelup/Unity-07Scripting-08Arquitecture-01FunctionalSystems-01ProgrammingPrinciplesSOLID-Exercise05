@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface IHealthStateIncrementable
+public interface IHealthStateControlIncrease
 {
 
     event Action<float> OnHealthIncreased;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(RigidbodyMotionAction))]
+[RequireComponent(typeof(IChaseMotionAction))]
 [RequireComponent(typeof(LayerBasedNearestObjectSensor))]
 public class MissileProjectileControl : MonoBehaviour
 {
@@ -8,14 +8,14 @@ public class MissileProjectileControl : MonoBehaviour
     [SerializeField] private float speed = 20;
     [SerializeField] private float turnSpeed = 10;
 
-    private RigidbodyMotionAction motionAction;
+    private IChaseMotionAction motionAction;
     private LayerBasedNearestObjectSensor nearestEnemySensor;
 
     private Transform target;
 
     private void Awake()
     {
-        motionAction = GetComponent<RigidbodyMotionAction>();
+        motionAction = GetComponent<IChaseMotionAction>();
         nearestEnemySensor = GetComponent<LayerBasedNearestObjectSensor>();
     }
 
@@ -23,7 +23,7 @@ public class MissileProjectileControl : MonoBehaviour
     {
         if (target != null) 
         {
-            motionAction.MoveTowards(target, speed, turnSpeed);
+            motionAction.Chase(target, speed, turnSpeed);
         }
         else
         {
@@ -34,8 +34,7 @@ public class MissileProjectileControl : MonoBehaviour
             }
             else
             {
-                //rigidbodyMotion.Rotate(Vector3.up); // - FALTA ESTO!
-                motionAction.Move(Vector3.up, speed);
+                motionAction.Free(speed);
             }
         }
     }

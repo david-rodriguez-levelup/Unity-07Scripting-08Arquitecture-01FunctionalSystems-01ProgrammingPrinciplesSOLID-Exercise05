@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472527021832427137}
   - component: {fileID: 4272776014725137567}
-  - component: {fileID: -971976715420497626}
+  - component: {fileID: 8723977811712274333}
   - component: {fileID: 2793955224354483849}
   - component: {fileID: 8927657757187507636}
   - component: {fileID: -3264387688307728262}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   turnSpeed: 10
---- !u!114 &-971976715420497626
+--- !u!114 &8723977811712274333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 472527021832427138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d53d6a2750f5e9479d299ebf3a186eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9152a1ca4923e244394c324548040c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2793955224354483849
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2ba5407200eb54fb0297dbbc6996f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeout: 5
+  timeout: 3
 --- !u!136 &8027666936317447660
 CapsuleCollider:
   m_ObjectHideFlags: 0

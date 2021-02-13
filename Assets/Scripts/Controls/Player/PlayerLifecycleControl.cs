@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(HealthState))]
+[RequireComponent(typeof(IHealthStateControlAll))]
 [RequireComponent(typeof(DamageSourceSensor))]
 [RequireComponent(typeof(HealingSourceSensor))]
 [RequireComponent(typeof(DefaultSpawnAction))]
-public class PlayerHealthControl : MonoBehaviour
+public class PlayerLifecycleControl : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem damageEffect;
     [SerializeField] ParticleSystem healingEffect;
 
-    private HealthState healthState;
+    private IHealthStateControlAll healthStateControl;
     private DamageSourceSensor damageSourceSensor;
     private HealingSourceSensor healingSourceSensor;
     private DefaultSpawnAction explosionSpawnAction;
 
     private void Awake()
     {
-        healthState = GetComponent<HealthState>();
+        healthStateControl = GetComponent<IHealthStateControlAll>();
         damageSourceSensor = GetComponent<DamageSourceSensor>();
         healingSourceSensor = GetComponent<HealingSourceSensor>();
         explosionSpawnAction = GetComponent<DefaultSpawnAction>();
@@ -27,19 +27,19 @@ public class PlayerHealthControl : MonoBehaviour
     {
         damageSourceSensor.OnDamageDetected += OnDamageDetected;
         healingSourceSensor.OnHealingDetected += OnHealingDetected;
-        healthState.OnMinHealthAchieved += Explode;
+        healthStateControl.OnMinHealthAchieved += Explode;
     }
 
     private void OnDisable()
     {
         damageSourceSensor.OnDamageDetected -= OnDamageDetected;
         healingSourceSensor.OnHealingDetected -= OnHealingDetected;
-        healthState.OnMinHealthAchieved -= Explode;
+        healthStateControl.OnMinHealthAchieved -= Explode;
     }
 
     private void OnDamageDetected(float amount)
     {
-        if (healthState.TryDecreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthDecreased.
+        if (healthStateControl.TryDecreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthDecreased.
         {
             damageEffect.Play();
         }
@@ -47,7 +47,7 @@ public class PlayerHealthControl : MonoBehaviour
 
     private void OnHealingDetected(float amount)
     {
-        if (healthState.TryIncreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthIncreased.
+        if (healthStateControl.TryIncreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthIncreased.
         {
             healingEffect.Play();
         }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(RigidbodyMotionAction))]
+[RequireComponent(typeof(IDefaultMotionAction))]
 public class PlayerMotionControl : MonoBehaviour
 {
 
@@ -8,14 +8,14 @@ public class PlayerMotionControl : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float angle = 10f;
 
-    private RigidbodyMotionAction motionAction;
+    private IDefaultMotionAction motionAction;
     private EngineAction engineAction;
 
     private float horizontalInput;
 
     private void Awake()
     {
-        motionAction = GetComponent<RigidbodyMotionAction>();
+        motionAction = GetComponent<IDefaultMotionAction>();
         engineAction = GetComponentInChildren<EngineAction>();
     }
 

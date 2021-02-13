@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(IHealthStateDecrementable))]
+[RequireComponent(typeof(IHealthStateControlDecrease))]
 [RequireComponent(typeof(DamageSourceSensor))]
 [RequireComponent(typeof(ScoreEmitterAction))]
 [RequireComponent(typeof(DefaultSpawnAction))]
-public class EnemyHealthControl : MonoBehaviour
+public class EnemyLifecycleControl : MonoBehaviour
 {
 
-    private IHealthStateDecrementable healthState;
+    private IHealthStateControlDecrease healthStateControl;
     private DamageSourceSensor damageSourceSensor;
     private ScoreEmitterAction scoreEmitterAction;
     private DefaultSpawnAction explosionSpawnAction;
 
     private void Awake()
     {
-        healthState = GetComponent<IHealthStateDecrementable>();
+        healthStateControl = GetComponent<IHealthStateControlDecrease>();
         damageSourceSensor = GetComponent<DamageSourceSensor>();
         scoreEmitterAction = GetComponent<ScoreEmitterAction>();
         explosionSpawnAction = GetComponent<DefaultSpawnAction>();
@@ -22,19 +22,19 @@ public class EnemyHealthControl : MonoBehaviour
 
     private void OnEnable()
     {
-        healthState.OnMinHealthAchieved += Explode;
+        healthStateControl.OnMinHealthAchieved += Explode;
         damageSourceSensor.OnDamageDetected += OnDamageDetected;
     }
 
     private void OnDisable()
     {
-        healthState.OnMinHealthAchieved += Explode;
+        healthStateControl.OnMinHealthAchieved += Explode;
         damageSourceSensor.OnDamageDetected += OnDamageDetected;
     }
 
     private void OnDamageDetected(float amount)
     {        
-        healthState.TryDecreaseHealth(amount);
+        healthStateControl.TryDecreaseHealth(amount);
     }
 
     private void Explode()

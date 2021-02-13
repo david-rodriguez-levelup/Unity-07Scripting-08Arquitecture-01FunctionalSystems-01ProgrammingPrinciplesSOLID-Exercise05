@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class HealthState : MonoBehaviour, IHealthStateIncrementable, IHealthStateDecrementable
+public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, IHealthStateControlIncrease, IHealthStateControlDecrease
 {
 
     public event Action<float> OnHealthDecreased;

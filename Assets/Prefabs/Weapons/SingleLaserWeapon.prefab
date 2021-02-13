@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6e7ee1b0f48174285102996b7ffcf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireButton: Fire1
+  fireButton: 
   projectilePrefab: {fileID: 5400000, guid: f4ec271e525e14ca9927a07e6a2e153d, type: 3}
 --- !u!114 &6195048543134334420
 MonoBehaviour:

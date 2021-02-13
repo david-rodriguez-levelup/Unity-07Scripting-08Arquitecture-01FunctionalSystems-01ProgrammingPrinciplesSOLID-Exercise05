@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class LevelUIHealthControl : MonoBehaviour
 {
-    [SerializeField] HealthState playerHealthState;
-    [SerializeField] RectMask2D healthBar;
+    [SerializeField] HealthStateControl playerHealthState;
+    [SerializeField] Image healthBar;
 
     private void OnEnable()
     {
@@ -33,10 +33,7 @@ public class LevelUIHealthControl : MonoBehaviour
         float maxHealth = playerHealthState.MaxHealth;
         float currentHealth = playerHealthState.CurrentHealth;
 
-        float normalizedValue = Mathf.InverseLerp(0, maxHealth, currentHealth);
-        float result = Mathf.Lerp(500, 0, normalizedValue);
-
-        healthBar.padding = new Vector4(0f, 0f, result, 0f);
+        healthBar.fillAmount = currentHealth / maxHealth;
     }
 
 }

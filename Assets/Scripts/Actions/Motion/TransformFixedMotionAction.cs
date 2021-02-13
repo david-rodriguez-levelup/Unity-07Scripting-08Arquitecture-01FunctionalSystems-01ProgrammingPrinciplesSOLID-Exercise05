@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public class TransformFixedMotionAction : MonoBehaviour
+public class TransformFixedMotionAction : MonoBehaviour, IFixedMotionAction
 {
-
     [SerializeField] private Vector3 direction = Vector3.zero;
     [SerializeField] private float speed = 5f;
 

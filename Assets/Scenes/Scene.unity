@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1514278358026042061, guid: 9548982553482e64da6da5e0b9e68ce0, type: 3}
+      propertyPath: fireButton
+      value: Fire2
+      objectReference: {fileID: 0}
     - target: {fileID: 8600046910482011082, guid: 9548982553482e64da6da5e0b9e68ce0, type: 3}
       propertyPath: m_Name
       value: Key2-ConeShellWeapon
@@ -417,6 +421,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7920678639923795097, guid: 7137dd1251b1b874c9a75b97835da02c, type: 3}
+      propertyPath: fireButton
+      value: Fire1
+      objectReference: {fileID: 0}
     - target: {fileID: 7978090598659155675, guid: 7137dd1251b1b874c9a75b97835da02c, type: 3}
       propertyPath: m_Name
       value: Key1-SingleLaserWeapon
@@ -434,6 +442,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &490272480034964531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1199150312}
+    m_Modifications:
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137787494690123724, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973843019852747340, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: fireButton
+      value: Fire5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175405357344350222, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
+      propertyPath: m_Name
+      value: Key5-ConeMissileWeapon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a80902c6ef5dcb46865fb2051e0c8cd, type: 3}
 --- !u!1001 &4025316330608857174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,7 +698,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6386626588549477823, guid: 91ac40121cc77e64aac7c42b1c537965, type: 3}
       propertyPath: m_Name
-      value: Key4-SingleMissileWeapon
+      value: Key3-SingleMissileWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628704278445197309, guid: 91ac40121cc77e64aac7c42b1c537965, type: 3}
+      propertyPath: fireButton
+      value: Fire3
       objectReference: {fileID: 0}
     - target: {fileID: 8969170093482015357, guid: 91ac40121cc77e64aac7c42b1c537965, type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969170093482015357, guid: 91ac40121cc77e64aac7c42b1c537965, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8969170093482015357, guid: 91ac40121cc77e64aac7c42b1c537965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -714,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2087583185196717665, guid: fe41891d2e126f149be0a2fbc0c42792, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2087583185196717665, guid: fe41891d2e126f149be0a2fbc0c42792, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -728,9 +801,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2519794679696796136, guid: fe41891d2e126f149be0a2fbc0c42792, type: 3}
+      propertyPath: fireButton
+      value: Fire4
+      objectReference: {fileID: 0}
     - target: {fileID: 4045324309600115238, guid: fe41891d2e126f149be0a2fbc0c42792, type: 3}
       propertyPath: m_Name
-      value: Key3-ConeLaserWeapon
+      value: Key4-ConeLaserWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe41891d2e126f149be0a2fbc0c42792, type: 3}
