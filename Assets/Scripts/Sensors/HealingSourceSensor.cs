@@ -8,22 +8,31 @@ public class HealingSourceSensor : MonoBehaviour
 
     public event Action<float> OnHealingDetected;
 
+    private void Start()
+    {
+        // Intentionally left empty to allow enable/disable from the Inspector.
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        DetectHealing(collision.gameObject);
+        DetectHealingSource(collision.gameObject);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        DetectHealing(collider.gameObject);
+        DetectHealingSource(collider.gameObject);
     }
 
-    private void DetectHealing(GameObject gameObject)
+    private void DetectHealingSource(GameObject colliderGameObject)
     {
-        HealingSourceAction healingSourceAction = gameObject.GetComponent<HealingSourceAction>();
-        if (healingSourceAction != null)
+        if (enabled)
         {
-            OnHealingDetected?.Invoke(healingSourceAction.Healing * healingRatio);
+            HealingSourceAction healingSourceAction = colliderGameObject.GetComponent<HealingSourceAction>();
+            if (healingSourceAction != null
+                && healingSourceAction.enabled)
+            {
+                OnHealingDetected?.Invoke(healingSourceAction.Healing * healingRatio);
+            }
         }
     }
 

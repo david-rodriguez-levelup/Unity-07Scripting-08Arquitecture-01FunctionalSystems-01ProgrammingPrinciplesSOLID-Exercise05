@@ -7,4 +7,9 @@ public class DamageSourceAction : MonoBehaviour
 
     public float Damage => damage;
 
+    private void Start()
+    {
+        // Intentionally left empty to allow enable/disable from the Inspector.
+    }
+
 }

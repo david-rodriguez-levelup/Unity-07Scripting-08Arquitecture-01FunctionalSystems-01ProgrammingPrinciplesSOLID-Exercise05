@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: playerHealthState
       value: 
       objectReference: {fileID: 890112815}
+    - target: {fileID: 2171460309015369795, guid: 2974dae006d74894a9cbe0e691abd7bd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1752746382}
     - target: {fileID: 5811962143037409045, guid: 2974dae006d74894a9cbe0e691abd7bd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -277,7 +281,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2539673780924698984, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
   m_PrefabInstance: {fileID: 8334544140264430348}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1752746382}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf06cae0a2a99614799f5d1af943f583, type: 3}
@@ -398,6 +402,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1752746382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 110440, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
+  m_PrefabInstance: {fileID: 8334544140264430348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1960598988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -874,6 +883,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1642649107815565163, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1981254479293521297, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
       propertyPath: m_Name
       value: ChaserMissileWeapon
@@ -881,6 +894,10 @@ PrefabInstance:
     - target: {fileID: 2243276429881723225, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
       propertyPath: m_Name
       value: SingleLaserWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165370329673614386, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7054594294798410483, guid: c9816fa979b06ba4e9c222b529370cc2, type: 3}
       propertyPath: m_IsActive

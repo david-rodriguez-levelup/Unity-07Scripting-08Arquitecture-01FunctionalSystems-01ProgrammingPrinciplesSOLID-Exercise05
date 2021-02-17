@@ -2,10 +2,10 @@
 using UnityEditor;
 using UnityEngine;
 
-public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, 
-                                                 IHealthStateControlIncrease, 
-                                                 IHealthStateControlDecrease, 
-                                                 IHealthStateControlReadOnly
+public class HealthStateControl : MonoBehaviour, IHealthStateControlAll, // PlayerLifecycleControl
+                                                 IHealthStateControlIncrease, // ?
+                                                 IHealthStateControlDecrease, // EnemyLifecycleControl
+                                                 IHealthStateControlReadOnly // LevelUIHealthControl
 {
 
     public event Action<float> OnHealthDecreased;
@@ -28,56 +28,75 @@ public class HealthStateControl : MonoBehaviour, IHealthStateControlAll,
 
     public bool TryIncreaseHealth(float amount)
     {
-        if (amount <= 0)
-            return false;
-
-        float previousHealth = currentHealth;
-
-        currentHealth += amount;
-
-        if (currentHealth > maxHealth)
+        if (enabled)
         {
-            currentHealth = maxHealth;
-            OnMaxHealthAchieved?.Invoke();
-        }
+            if (amount <= 0)
+                return false;
 
-        if (currentHealth != previousHealth)
-        {
-            OnHealthIncreased?.Invoke(amount);
-            return true;
+            float previousHealth = currentHealth;
+
+            currentHealth += amount;
+
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+                OnMaxHealthAchieved?.Invoke();
+            }
+
+            if (currentHealth != previousHealth)
+            {
+                OnHealthIncreased?.Invoke(amount);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
+            #if UNITY_EDITOR
+                Debug.LogWarning($"{gameObject.name}: Can't increase health because {nameof(HealthStateControl)} component is disabled.");
+            #endif
             return false;
         }
     }
 
     public bool TryDecreaseHealth(float amount)
     {
-        if (amount <= 0f)
-            return false;
-
-        float previousHealth = currentHealth;
-
-        currentHealth -= amount;
-
-        if (currentHealth <= 0f)
+        if (enabled)
         {
-            currentHealth = 0f;
-            OnMinHealthAchieved?.Invoke();
-        }
+            if (amount <= 0f)
+                return false;
 
-        if (currentHealth != previousHealth)
-        {
-            OnHealthDecreased?.Invoke(amount);
-            return true;
+            float previousHealth = currentHealth;
+
+            currentHealth -= amount;
+
+            if (currentHealth <= 0f)
+            {
+                currentHealth = 0f;
+                OnMinHealthAchieved?.Invoke();
+            }
+
+            if (currentHealth != previousHealth)
+            {
+                OnHealthDecreased?.Invoke(amount);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
+            #if UNITY_EDITOR
+                Debug.LogWarning($"{gameObject.name}: Can't decrease health because {nameof(HealthStateControl)} component is disabled.");
+            #endif
             return false;
         }
     }
-
 
     #region Gizmos
 
@@ -85,7 +104,7 @@ public class HealthStateControl : MonoBehaviour, IHealthStateControlAll,
     {      
         Handles.Label(transform.position, currentHealth.ToString());
     }
-
+    
     #endregion
 
 }

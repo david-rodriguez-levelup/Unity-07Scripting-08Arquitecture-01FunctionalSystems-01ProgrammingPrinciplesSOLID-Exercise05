@@ -29,16 +29,16 @@ public class LevelUIScoreControl : MonoBehaviour
     private void Start()
     {
         score = 0;
-        Refresh();
+        UpdateScoreField();
     }
 
     private void IncreaseScore(int amount)
     {
         score += amount;
-        Refresh();
+        UpdateScoreField();
     }
 
-    private void Refresh()
+    private void UpdateScoreField()
     {
         scoreField.text = score.ToString();
     }

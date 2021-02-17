@@ -7,4 +7,9 @@ public class HealingSourceAction : MonoBehaviour
 
     public float Healing => healing;
 
+    private void Start()
+    {
+        // Intentionally left empty to allow enable/disable from the Inspector.
+    }
+
 }

@@ -15,20 +15,22 @@ public class DamageSourceSensor : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        DetectDamage(collision.gameObject);
+        DetectDamageSource(collision.gameObject);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        DetectDamage(collider.gameObject);
+        DetectDamageSource(collider.gameObject);
     }
 
-    private void DetectDamage(GameObject gameObject)
+    private void DetectDamageSource(GameObject colliderGameObject)
     {
         if (enabled)
         {
-            DamageSourceAction damageSourceAction = gameObject.GetComponent<DamageSourceAction>();
-            if (damageSourceAction != null)
+            DamageSourceAction damageSourceAction = colliderGameObject.GetComponent<DamageSourceAction>();
+
+            if (damageSourceAction != null
+                /*&& damageSourceAction.enabled*/) // No funciona con los proyectiles en los enemigos. Su destroy pone damageSourceAction.enabled a false y no llegan a hacer daño!
             {
                 OnDamageDetected?.Invoke(damageSourceAction.Damage * damageRatio);
             }

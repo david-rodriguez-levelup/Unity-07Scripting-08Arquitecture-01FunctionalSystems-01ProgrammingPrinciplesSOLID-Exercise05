@@ -39,6 +39,8 @@ public class PlayerLifecycleControl : MonoBehaviour
 
     private void OnDamageDetected(float amount)
     {
+        // Esta capa de indirección (el controller recibe el evento del DamageSourceSensor y consume el método del HealthStateControl) 
+        // nos permite lanzar aquí FX específicos del Player o realizar otras acciones propias del controlador.
         if (healthStateControl.TryDecreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthDecreased.
         {
             damageEffect.Play();
@@ -47,6 +49,8 @@ public class PlayerLifecycleControl : MonoBehaviour
 
     private void OnHealingDetected(float amount)
     {
+        // Esta capa de indirección (el controller recibe el evento del HealingSourceSensor y consume el método del HealthStateControl) 
+        // nos permite lanzar aquí FX específicos del Player o realizar otras acciones propias del controlador.
         if (healthStateControl.TryIncreaseHealth(amount)) // Otra opción sería subscribirse a healthState.OnHealthIncreased.
         {
             healingEffect.Play();

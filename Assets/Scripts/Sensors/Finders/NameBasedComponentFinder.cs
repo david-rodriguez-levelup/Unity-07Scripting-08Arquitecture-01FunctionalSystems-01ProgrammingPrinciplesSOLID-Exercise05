@@ -2,6 +2,7 @@
 
 public class NameBasedComponentFinder<T>
 {
+
     private string uniqueObjectName;
 
     public NameBasedComponentFinder(string _uniqueObjectName)
